@@ -1,0 +1,14 @@
+1. Show all lists of tasks:
+/api/v1/{username}/tasks - GET
+
+2. Show details of a task:
+/api/v1/{username}/tasks/{id} - GET
+
+3. Delete a task:
+/api/v1/{username}/tasks/{id} - DELETE
+
+4. Update the details of a particular task
+/api/v1/{username}/tasks/{id} - PUT
+
+5. Create a new task
+/api/v1/{username}/tasks - POST
