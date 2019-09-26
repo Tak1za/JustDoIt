@@ -1,9 +1,7 @@
 package todo;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +15,13 @@ public class TaskController {
     }
 
     @GetMapping("/api/v1/{username}/tasks")
-    List<Task> all(@PathVariable String username){
+    List<Task> allTasks(@PathVariable String username){
         return repository.findAll();
+    }
+
+    @DeleteMapping("/api/v1/{username}/tasks/{id}")
+    ResponseEntity<?> deleteTask(@PathVariable String username, @PathVariable Long id){
+        repository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }
